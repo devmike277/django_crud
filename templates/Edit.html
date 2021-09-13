@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>Crud operations with postgersql</title>
+</head>
+<body>
+    <center>
+        <h1>How to edit emp with postgersql</h1>
+        <h3>Django web tutorial</h3>
+        <hr/>
+        <form method="POST" action="/Update/{{EmpModel.id}}">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Employee id</td>
+                <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
+            </tr>
+            <tr>
+                <td>Employee name</td>
+                <td><input type="text" name="empname" value="{{EmpModel.empname}}"></td>
+            </tr>
+            <tr>
+                <td>Employee email</td>
+                <td><input type="text" name="email" value="{{EmpModel.email}}"></td>
+            </tr>
+            <tr>
+                <td>Employee Occupation</td>
+                <td><input type="text" name="occupation" value="{{EmpModel.occupation}}"></td>
+            </tr>
+            <tr>
+                <td>Employee salary</td>
+                <td><input type="text" name="salary" value="{{EmpModel.salary}}"></td>
+            </tr>
+            <tr>
+                <td>Employee Gender</td>
+                <td><input type="text" name="gender" value="{{EmpModel.gender}}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td> 
+                    {% if messages %}
+                    {% for message in messages %}
+                    <b style="color: green;">{{message}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+       
+        <a href="{% url 'showemp' %}">Go to home</a>
+        </form>
+    </center>
+</body>
+</html>

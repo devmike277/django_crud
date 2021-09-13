@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>Crud operations with postgersql</title>
+</head>
+<body>
+    <center>
+        <h1>How to create crud operations with postgersql</h1>
+        <h3>Django web tutorial</h3>
+        <hr/>
+        <a href="{% url 'Insertemp' %}">Create employee</a>
+        <table border="1">
+            <tr>
+                <th>Employee id</th>
+                <th>Employee name</th>
+                <th>Email</th>
+                <th>Occupation</th>
+                <th>Salary</th>
+                <th>Gender</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.empname}}</td>
+                <td>{{result.email}}</td>
+                <td>{{result.occupation}}</td>
+                <td>{{result.salary}}</td>
+                <td>{{result.gender}}</td>
+                <td><a href="Edit/{{result.id}}">Edit</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
